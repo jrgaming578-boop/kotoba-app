@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Kotoba</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Review Kotoba</h1>
+
+    <!-- PROGRESS BAR UTAMA -->
+    <div class="progress-wrap">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText">0%</div>
+    </div>
+
+    <!-- STATISTIK DETAIL -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num" id="statHafal">0</div>
+        <div class="stat-label">✅ Hafal</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="statUlang">0</div>
+        <div class="stat-label">❌ Ulangi</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="statSisa">0</div>
+        <div class="stat-label">📖 Sisa</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="statTotal">0</div>
+        <div class="stat-label">📚 Total</div>
+      </div>
+    </div>
+
+    <!-- CONTROL -->
+    <div class="controls">
+      <select id="filterBab">
+        <option value="all">Semua Bab</option>
+      </select>
+      <select id="mode">
+        <option value="kanji">Kanji → Arti</option>
+        <option value="kana">Kana → Arti</option>
+        <option value="arti">Arti → Kanji</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div id="card" class="card" onclick="flip()">
+      <div class="card-bab" id="cardBab"></div>
+      <div class="front" id="front">Loading...</div>
+      <div class="sub" id="sub"></div>
+      <div class="back" id="back" style="display:none"></div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn-salah" onclick="jawab(false)">❌ Ulangi</button>
+      <button class="btn-benar" onclick="jawab(true)">✅ Hafal</button>
+    </div>
+
+    <button class="btn-reset" onclick="reset()">🔄 Mulai Ulang Sesi</button>
+    <button class="btn-reset-full" onclick="resetSemua()">🗑️ Reset Semua Progress</button>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
